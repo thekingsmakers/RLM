@@ -1,0 +1,128 @@
+/* Redom Web Summarizer Content Styles */
+
+.redom-summary-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.redom-summary-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.redom-summary-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.redom-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.redom-summary-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #212529;
+}
+
+.redom-close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6c757d;
+  transition: color 0.2s ease;
+}
+
+.redom-close-btn:hover {
+  color: #343a40;
+}
+
+.redom-summary-content {
+  padding: 15px;
+}
+
+.redom-summary-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.redom-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.redom-summary-text {
+  line-height: 1.5;
+  font-size: 14px;
+  color: #212529;
+}
+
+/* Dark theme support */
+body.dark-theme .redom-summary-card {
+  background-color: #2d2d2d;
+  color: #f8f9fa;
+}
+
+body.dark-theme .redom-summary-header {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+body.dark-theme .redom-summary-header h3 {
+  color: #f8f9fa;
+}
+
+body.dark-theme .redom-close-btn {
+  color: #adb5bd;
+}
+
+body.dark-theme .redom-close-btn:hover {
+  color: #f8f9fa;
+}
+
+body.dark-theme .redom-spinner {
+  border: 3px solid #3d3d3d;
+  border-top: 3px solid #3498db;
+}
+
+body.dark-theme .redom-summary-text {
+  color: #f8f9fa;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .redom-summary-container {
+    max-width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+} 

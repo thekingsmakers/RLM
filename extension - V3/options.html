@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trae Extension Settings</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/options.css">
+</head>
+<body>
+  <div class="settings-container">
+    <header class="settings-header">
+      <h1>Redom Web Summarizer Settings</h1>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="themeToggle">
+          <input type="checkbox" id="themeToggle" class="theme-toggle">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-label">Dark Mode</span>
+      </div>
+    </header>
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>API Configuration</h2>
+        <p class="text-muted">Enter your API keys to use different AI models for summarization</p>
+      </div>
+      
+      <div class="api-key-section">
+        <div class="api-key-group">
+          <label for="openaiKey">OpenAI API Key:</label>
+          <div class="key-input-group">
+            <input type="password" id="openaiKey" placeholder="sk-...">
+            <button id="testOpenAI" class="test-button">Test Connection</button>
+          </div>
+          <div id="openaiStatus" class="api-status"></div>
+        </div>
+        
+        <div class="api-key-group">
+          <label for="anthropicKey">Anthropic API Key:</label>
+          <div class="key-input-group">
+            <input type="password" id="anthropicKey" placeholder="sk-ant-...">
+            <button id="testAnthropic" class="test-button">Test Connection</button>
+          </div>
+          <div id="anthropicStatus" class="api-status"></div>
+        </div>
+        
+        <div class="api-key-group">
+          <label for="geminiKey">Gemini API Key:</label>
+          <div class="key-input-group">
+            <input type="password" id="geminiKey" placeholder="AIza...">
+            <button id="testGemini" class="test-button">Test Connection</button>
+          </div>
+          <div id="geminiStatus" class="api-status"></div>
+        </div>
+        
+        <div class="api-key-group">
+          <label for="mistralKey">Mistral API Key:</label>
+          <div class="key-input-group">
+            <input type="password" id="mistralKey" placeholder="...">
+            <button id="testMistral" class="test-button">Test Connection</button>
+          </div>
+          <div id="mistralStatus" class="api-status"></div>
+        </div>
+        
+        <div class="api-key-group">
+          <label for="deepseekKey">DeepSeek API Key:</label>
+          <div class="key-input-group">
+            <input type="password" id="deepseekKey" placeholder="...">
+            <button id="testDeepseek" class="test-button">Test Connection</button>
+          </div>
+          <div id="deepseekStatus" class="api-status"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>Default Settings</h2>
+        <p class="text-muted">Configure your preferred default options</p>
+      </div>
+      
+      <div class="settings-group">
+        <div class="form-group">
+          <label for="defaultModel">Default AI Model:</label>
+          <select id="defaultModel" class="select-styled">
+            <option value="openai">OpenAI (GPT-4)</option>
+            <option value="anthropic">Anthropic (Claude 3)</option>
+            <option value="gemini">Google Gemini</option>
+            <option value="mistral">Mistral</option>
+            <option value="deepseek">DeepSeek</option>
+          </select>
+          <p class="setting-description">This AI model will be automatically selected when you open the extension</p>
+        </div>
+        
+        <div class="form-group">
+          <label for="defaultMode">Default Summary Mode:</label>
+          <select id="defaultMode" class="select-styled">
+            <option value="standard">Standard</option>
+            <option value="bullet">Bullet Points</option>
+            <option value="detailed">Detailed</option>
+            <option value="tldr">TL;DR</option>
+            <option value="academic">Academic</option>
+          </select>
+          <p class="setting-description">The summary style that will be used by default</p>
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="autoSummarize">
+            <span class="checkbox-text">Auto-summarize on page load</span>
+          </label>
+          <p class="setting-description">Automatically generate a summary when you open a new page</p>
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="showExplanations">
+            <span class="checkbox-text">Show explanations by default</span>
+          </label>
+          <p class="setting-description">Display information about the selected model and mode with each summary</p>
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="alwaysUseDefaultAI">
+            <span class="checkbox-text">Always use default AI model</span>
+          </label>
+          <p class="setting-description">Skip AI model selection and always use your default model</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>Custom API</h2>
+        <p class="text-muted">Add your own API endpoints</p>
+      </div>
+      
+      <div class="custom-api-form">
+        <div class="form-group">
+          <label for="customApiName">API Name:</label>
+          <input type="text" id="customApiName" placeholder="My Custom API">
+        </div>
+        
+        <div class="form-group">
+          <label for="customApiEndpoint">Endpoint URL:</label>
+          <input type="text" id="customApiEndpoint" placeholder="https://api.example.com/v1">
+        </div>
+        
+        <div class="form-group">
+          <label for="customApiKey">API Key:</label>
+          <input type="password" id="customApiKey" placeholder="...">
+        </div>
+        
+        <button id="addCustomApi" class="secondary-button">Add Custom API</button>
+      </div>
+      
+      <div id="customApiList" class="custom-api-list">
+        <!-- Custom APIs will be listed here -->
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>License Management</h2>
+        <p class="text-muted">Manage your extension license</p>
+      </div>
+      
+      <div class="license-info-section">
+        <div id="licenseStatusCard" class="license-status-card">
+          <div class="status-icon" id="statusIcon">⚠️</div>
+          <div class="status-details">
+            <h3 id="licenseStatusTitle">Checking license...</h3>
+            <p id="licenseStatusMessage">Please wait while we verify your license status.</p>
+            <div class="license-expiry" id="licenseExpiry"></div>
+          </div>
+        </div>
+        <button id="manageLicense" class="secondary-button">Manage License</button>
+      </div>
+    </div>
+    
+    <div class="action-bar">
+      <button id="saveSettings" class="primary-button">Save Settings</button>
+      <button id="resetSettings" class="secondary-button">Reset to Defaults</button>
+    </div>
+  </div>
+  
+  <script src="scripts/utils.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

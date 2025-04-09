@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redom Web Summarizer</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>Redom Web Summarizer</h1>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="themeToggle">
+          <input type="checkbox" id="themeToggle" class="theme-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+    
+    <div class="card summary-options">
+      <div class="option-group">
+        <label for="summaryMode">Summary Mode</label>
+        <select id="summaryMode" class="select-styled">
+          <option value="standard">Standard Summary</option>
+          <option value="bullet">Bullet-Point Summary</option>
+          <option value="detailed">Detailed Explanation</option>
+          <option value="tldr">TL;DR Mode</option>
+          <option value="academic">Academic Mode</option>
+        </select>
+        <div class="tooltip info-icon" id="modeInfoIcon">
+          <span class="info-circle">i</span>
+          <span class="tooltip-text">Click for more information about this mode</span>
+        </div>
+      </div>
+      
+      <div class="option-group">
+        <label for="aiModel">AI Model</label>
+        <select id="aiModel" class="select-styled">
+          <option value="openai">OpenAI GPT-4</option>
+          <option value="gemini">Google Gemini</option>
+          <option value="mistral">Mistral AI</option>
+          <option value="deepseek">DeepSeek</option>
+          <option value="anthropic">Anthropic Claude</option>
+        </select>
+        <div class="tooltip info-icon" id="modelInfoIcon">
+          <span class="info-circle">i</span>
+          <span class="tooltip-text">Click for more information about this model</span>
+        </div>
+      </div>
+    </div>
+    
+    <button id="summarizeBtn" class="primary-button">Summarize</button>
+    
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <div id="explanationSection" class="explanation-section hidden"></div>
+    
+    <div class="summary-output card" id="summaryOutput">
+      <div class="placeholder-text">Your summary will appear here</div>
+    </div>
+    
+    <div class="action-buttons">
+      <button id="copyBtn" class="action-button" disabled>
+        <span class="button-icon">📋</span> Copy
+      </button>
+      <button id="saveBtn" class="action-button" disabled>
+        <span class="button-icon">💾</span> Save
+      </button>
+      <button id="explainBtn" class="action-button">
+        <span class="button-icon">ℹ️</span> Explain
+      </button>
+      <button id="settingsBtn" class="action-button">
+        <span class="button-icon">⚙️</span> Settings
+      </button>
+    </div>
+  </div>
+  
+  <script src="scripts/utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redom Web Summarizer - License Management</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/license.css">
+</head>
+<body>
+  <div class="license-container">
+    <header class="license-header">
+      <h1>License Management</h1>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="themeToggle">
+          <input type="checkbox" id="themeToggle" class="theme-toggle">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-label">Dark Mode</span>
+      </div>
+    </header>
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>License Status</h2>
+        <p class="text-muted">Current license information for Redom Web Summarizer</p>
+      </div>
+      
+      <div class="license-status-section">
+        <div id="licenseStatusCard" class="license-status-card">
+          <div class="status-icon" id="statusIcon">⚠️</div>
+          <div class="status-details">
+            <h3 id="licenseStatusTitle">Checking license...</h3>
+            <p id="licenseStatusMessage">Please wait while we verify your license status.</p>
+            <div class="license-expiry" id="licenseExpiry"></div>
+          </div>
+        </div>
+        <div class="license-support-info">
+          <p>Need a license? Please contact us at <a href="mailto:redomlicensemanager@gmail.com">redomlicensemanager@gmail.com</a> or through the platform where you purchased the extension.</p>
+          <button id="contactSupport" class="secondary-button">Request License</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>License Information</h2>
+        <p class="text-muted">How to obtain a license for Redom Web Summarizer</p>
+      </div>
+      
+      <div class="license-info-section">
+        <div class="info-box">
+          <h3>How to Get a License</h3>
+          <p>Licenses for Redom Web Summarizer can be obtained through:</p>
+          <ul>
+            <li>The platform where you purchased the extension</li>
+            <li>Contacting our license management team directly</li>
+          </ul>
+          <div class="contact-info">
+            <p><strong>Email:</strong> redomlicensemanager@gmail.com</p>
+            <p>Please include your purchase information when requesting a license.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>Activate License</h2>
+        <p class="text-muted">Enter your license token to activate the extension</p>
+      </div>
+      
+      <div class="license-activation-section">
+        <div class="form-group">
+          <label for="licenseToken">License Token:</label>
+          <div class="token-input-group">
+            <input type="text" id="licenseToken" class="token-input" placeholder="Enter your license token">
+          </div>
+          <div class="token-input-group">
+            <button id="activateToken" class="primary-button">Activate</button>
+          </div>
+          <div id="activationStatus" class="activation-status"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>License History</h2>
+        <p class="text-muted">Previous license tokens used with this extension</p>
+      </div>
+
+      <div id="licenseHistory" class="license-history-section">
+        <!-- License history will be populated here -->
+        <div class="empty-history-message">No previous license tokens found.</div>
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button id="returnToSettings" class="secondary-button">Return to Settings</button>
+    </div>
+  </div>
+  <footer class="license-footer">
+    <div class="container">
+      <p class="text-muted text-center">© thekingsmakers@2025 - Redom License Manager v1.0</p>
+    </div>
+  </footer>
+  <script src="scripts/utils.js"></script>
+  <script src="scripts/license-validator.js"></script>
+  <script src="license.js"></script>
+</body>
+</html>
